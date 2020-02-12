@@ -1,17 +1,17 @@
-//UVa: 10327 - FlipSort
+//UVa: 10810 - Ultra-QuickSort
 #include <vector>
 #include <iostream>
 using namespace std;
 
-vector<int> num;
+vector<long long int> num;
 
-int flip(int low, int hi){
-	int r = 0;
+long long int flip(int low, int hi){
+	long long int r = 0;
 	if(hi-low <= 1){
 		return 0;
 	}
 	int mid = low + ((hi-low)/2);
-	vector<int> aux;
+	vector<long long int> aux;
 	int a = low;
 	int b = mid;
 
@@ -48,14 +48,17 @@ int flip(int low, int hi){
 }
 
 int main(){
-	int n,s,ans;
-	while(cin >> n){
+	int n;
+	long long int s,ans;
+	cin >> n;
+	while(n != 0){
 		for(int i=0; i<n; i++){
 			cin >> s;
 			num.push_back(s);
 		}
 		ans = flip(0, n);
-		cout << "Minimum exchange operations : "<<ans << endl;
+		cout << ans << endl;
 		num.clear();
+		cin >> n;
 	}
 }
